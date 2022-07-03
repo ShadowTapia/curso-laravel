@@ -33,6 +33,8 @@
 
         <div class="container">
             <div class="mt-4 card card-white inset-x-8">
+
+
                 @yield('content')
             </div>
         </div>
