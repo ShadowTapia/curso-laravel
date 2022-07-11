@@ -3,7 +3,8 @@
 namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
 class StoreRequest extends FormRequest
 {
@@ -13,6 +14,7 @@ class StoreRequest extends FormRequest
             'slug' => str($this->title)->slug()
         ]);
     }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -21,6 +23,14 @@ class StoreRequest extends FormRequest
     public function authorize()
     {
         return true;
+    }
+
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    {
+        if ($this->expectsJson()) {
+            $response = new Response($validator->errors(), 422);
+            throw new ValidationException($validator, $response);
+        }
     }
 
     /**

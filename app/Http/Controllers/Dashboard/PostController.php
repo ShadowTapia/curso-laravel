@@ -7,7 +7,6 @@ use App\Http\Requests\Post\PutRequest;
 use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 use App\Models\Category;
-use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
