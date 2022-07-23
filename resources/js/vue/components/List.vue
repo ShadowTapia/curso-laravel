@@ -11,7 +11,7 @@
     </o-modal>
     <h1 class="text-center">Listado de Post</h1>
     <o-button icon-left="plus" @click="$router.push({ name: 'save' })"
-      >Crear</o-button
+      >Crear Post</o-button
     >
     <div class="mb-5"></div>
     <o-table

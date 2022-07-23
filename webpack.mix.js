@@ -29,3 +29,5 @@ mix.webpackConfig({
         children: true,
     },
 });
+
+mix.browserSync('laraprimerospasos.test');
